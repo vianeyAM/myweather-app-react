@@ -1,6 +1,7 @@
 import React from "react";
 
 import "./Weather.css";
+import * as Icons from "@intern0t/react-weather-icons";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -11,7 +12,6 @@ import {
 
 export default function Weather() {
   let WeatherData = {
-    imgUrl: "https://openweathermap.org/img/wn/10n@2x.png",
     WeatherType: "Rain",
     Temperature: "12",
     FeelsLike: "10",
@@ -22,12 +22,7 @@ export default function Weather() {
   return (
     <div className="row">
       <div className="col-sm img-weather">
-        <img
-          src={WeatherData.imgUrl}
-          alt={WeatherData.WeatherType}
-          className="img-fluid"
-          id="icon"
-        />
+        <Icons.Rain color="#D685B1" size={150} id="icon" />
         <h3>
           <span id="weatherType">{WeatherData.WeatherType}</span>
         </h3>
