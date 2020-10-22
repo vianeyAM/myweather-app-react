@@ -2,6 +2,13 @@ import React from "react";
 
 import "./Weather.css";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faThermometerFull,
+  faTint,
+  faWind,
+} from "@fortawesome/free-solid-svg-icons";
+
 export default function Weather() {
   let WeatherData = {
     imgUrl: "https://openweathermap.org/img/wn/10n@2x.png",
@@ -39,15 +46,15 @@ export default function Weather() {
         <div>
           <ul>
             <li>
-              <i className="fas fa-thermometer-full icon-data"></i>
+              <FontAwesomeIcon icon={faThermometerFull} className="icon-data" />
               Feels like: <span id="feels">{WeatherData.FeelsLike}</span>ºC
             </li>
             <li>
-              <i className="fas fa-tint icon-data"></i>
+              <FontAwesomeIcon icon={faTint} className="icon-data" />
               Humidity: <span id="humidity">{WeatherData.Humidity}</span>%
             </li>
             <li>
-              <i className="fas fa-wind icon-data"> </i>
+              <FontAwesomeIcon icon={faWind} className="icon-data" />
               Wind Speed: <span id="windspeed">
                 {WeatherData.WindSpeed}
               </span>{" "}

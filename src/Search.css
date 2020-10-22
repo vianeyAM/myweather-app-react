@@ -17,3 +17,7 @@ button.btn:hover {
   margin: 0 auto;
   padding: 0 11%;
 }
+
+.icon-search {
+  margin: 3px;
+}

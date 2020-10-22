@@ -1,5 +1,10 @@
 import React from "react";
 import "./Search.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faSearchLocation,
+  faLocationArrow,
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function SearchEngine() {
   return (
@@ -14,14 +19,15 @@ export default function SearchEngine() {
           />
         </div>
         <button className="btn btn mb-2" type="submit" id="button-search">
-          <i className="fas fa-search-location"> Search </i>
+          <FontAwesomeIcon icon={faSearchLocation} className="icon-search" />
+          Search
         </button>
         <button
           className="btn btn mb-2"
           type="submit"
           id="button-current-location"
         >
-          <i className="fas fa-location-arrow"></i>
+          <FontAwesomeIcon icon={faLocationArrow} />
         </button>
       </form>
     </div>

@@ -38,6 +38,10 @@ span.units a {
   padding-left: 5px;
 }
 
+.icon-data {
+  margin: 3px;
+}
+
 #temperature {
   font-size: 5rem;
 }
