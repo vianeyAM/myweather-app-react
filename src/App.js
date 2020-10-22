@@ -5,6 +5,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Search from "./Search";
 import Showdate from "./Dateplace";
 import Weather from "./Weather";
+import Forecast from "./Forecast";
+import Footer from "./Footer";
 
 function App() {
   return (
@@ -14,8 +16,10 @@ function App() {
           <Search />
           <Showdate />
           <Weather />
+          <Forecast />
         </div>
       </header>
+      <Footer />
     </div>
   );
 }
