@@ -35,10 +35,13 @@ export default function Weather() {
       <div class="col-sm data-weather">
         <strong id="temperature">{WeatherData.Temperature}</strong>
         <span className="units">
-          <button id="celsius-link" class="active">
+          <button className="links btn btn" id="celsius-link">
             ºC
           </button>
-          |<button id="farenheit-link">ºF</button>
+          |
+          <button className="links btn btn" id="farenheit-link">
+            ºF
+          </button>
         </span>
         <div>
           <ul>

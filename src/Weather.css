@@ -12,7 +12,7 @@ li {
   list-style: none;
 }
 
-span.units a {
+span.units {
   color: #543884;
 }
 
@@ -44,4 +44,23 @@ span.units a {
 
 #temperature {
   font-size: 5rem;
+}
+
+button.links {
+  background-color: #9a77cf;
+  color: #ffffff;
+  border-color: #9a77cf;
+  margin-right: 5px;
+  margin-left: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 1px;
+  padding-top: 1px;
+}
+
+button.links:hover {
+  background-color: #543884;
+  color: #ffffff;
+  border-color: #543884;
+  transition: ease-in-out 250ms;
 }
