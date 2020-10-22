@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import Search from "./Search";
 import Showdate from "./Dateplace";
+import Weather from "./Weather";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <div className="weather-app">
           <Search />
           <Showdate />
+          <Weather />
         </div>
       </header>
     </div>
