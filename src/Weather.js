@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-import ShowDate from "./Dateplace";
+import FormatDate from "./FormatDate";
 
 import "./Weather.css";
 import * as Icons from "@intern0t/react-weather-icons";
@@ -35,7 +35,7 @@ export default function Weather() {
         <div className="date-place">
           <h1>{weatherData.city}</h1>
           <p>
-            <ShowDate date={weatherData.date} />
+            <FormatDate date={weatherData.date} />
           </p>
         </div>
         <div className="row">
