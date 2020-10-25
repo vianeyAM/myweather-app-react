@@ -42,18 +42,16 @@ export default function Weather() {
           <ul>
             <li>
               <FontAwesomeIcon icon={faThermometerFull} className="icon-data" />
-              Feels like: <span id="feels">{WeatherData.FeelsLike}</span>ºC
+              {""}Feels like: <span id="feels">{WeatherData.FeelsLike}</span>ºC
             </li>
             <li>
               <FontAwesomeIcon icon={faTint} className="icon-data" />
-              Humidity: <span id="humidity">{WeatherData.Humidity}</span>%
+              {""}Humidity: <span id="humidity">{WeatherData.Humidity}</span>%
             </li>
             <li>
               <FontAwesomeIcon icon={faWind} className="icon-data" />
-              Wind Speed: <span id="windspeed">
-                {WeatherData.WindSpeed}
-              </span>{" "}
-              Km/H
+              {""}Wind Speed:{" "}
+              <span id="windspeed">{WeatherData.WindSpeed}</span> Km/H
             </li>
           </ul>
         </div>

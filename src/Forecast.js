@@ -12,7 +12,8 @@ export default function Forecast() {
           <Icons.Cloudy color="#FF8B33" size={50} />
         </div>
         <div>
-          <strong>12º</strong> |<span>20º</span>
+          <strong>12º</strong> | {""}
+          <span>20º</span>
         </div>
       </div>
       <div class="col-sm box-day">
@@ -21,7 +22,8 @@ export default function Forecast() {
           <Icons.DayRainMix color="#FF8B33" size={50} />
         </div>
         <div>
-          <strong>12º</strong> |<span>20º</span>
+          <strong>12º</strong> | {""}
+          <span>20º</span>
         </div>
       </div>
       <div class="col-sm box-day">
@@ -30,7 +32,8 @@ export default function Forecast() {
           <Icons.DayRain color="#FF8B33" size={50} />
         </div>
         <div>
-          <strong>12º</strong> |<span>20º</span>
+          <strong>12º</strong> | {""}
+          <span>20º</span>
         </div>
       </div>
       <div class="col-sm box-day">
@@ -39,7 +42,8 @@ export default function Forecast() {
           <Icons.Cloudy color="#FF8B33" size={50} />
         </div>
         <div>
-          <strong>12º</strong> |<span>20º</span>
+          <strong>12º</strong> | {""}
+          <span>20º</span>
         </div>
       </div>
       <div class="col-sm box-day">
@@ -48,7 +52,8 @@ export default function Forecast() {
           <Icons.DayRainMix color="#FF8B33" size={50} />
         </div>
         <div>
-          <strong>12º</strong> |<span>20º</span>
+          <strong>12º</strong> | {""}
+          <span>20º</span>
         </div>
       </div>
     </div>
