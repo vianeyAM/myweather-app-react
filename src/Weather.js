@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 
 import "./Weather.css";
 import * as Icons from "@intern0t/react-weather-icons";
@@ -11,51 +12,75 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function Weather() {
-  let WeatherData = {
-    WeatherType: "Rain",
-    Temperature: "12",
-    FeelsLike: "10",
-    Humidity: "15",
-    WindSpeed: "17",
-  };
+  const [weatherData, setweatherData] = useState({ ready: false });
 
-  return (
-    <div className="row">
-      <div className="col-sm img-weather">
-        <Icons.Rain color="#D685B1" size={150} id="icon" />
-        <h3>
-          <span id="weatherType">{WeatherData.WeatherType}</span>
-        </h3>
-      </div>
-      <div class="col-sm data-weather">
-        <strong id="temperature">{WeatherData.Temperature}</strong>
-        <span className="units">
-          <button className="links btn btn" id="celsius-link">
-            ºC
-          </button>
-          |
-          <button className="links btn btn" id="farenheit-link">
-            ºF
-          </button>
-        </span>
-        <div>
-          <ul>
-            <li>
-              <FontAwesomeIcon icon={faThermometerFull} className="icon-data" />
-              {""}Feels like: <span id="feels">{WeatherData.FeelsLike}</span>ºC
-            </li>
-            <li>
-              <FontAwesomeIcon icon={faTint} className="icon-data" />
-              {""}Humidity: <span id="humidity">{WeatherData.Humidity}</span>%
-            </li>
-            <li>
-              <FontAwesomeIcon icon={faWind} className="icon-data" />
-              {""}Wind Speed:{" "}
-              <span id="windspeed">{WeatherData.WindSpeed}</span> Km/H
-            </li>
-          </ul>
+  function handleResponse(response) {
+    setweatherData({
+      ready: true,
+      temperature: response.data.main.temp,
+      weatherType: response.data.weather[0].description,
+      feelsLike: response.data.main.feels_like,
+      humidity: response.data.main.humidity,
+      windSpeed: response.data.wind.speed,
+    });
+  }
+
+  if (weatherData.ready) {
+    return (
+      <div className="row">
+        <div className="col-sm img-weather">
+          <Icons.Rain color="#D685B1" size={150} id="icon" />
+          <h3>
+            <span id="weatherType">{weatherData.weatherType}</span>
+          </h3>
+        </div>
+        <div class="col-sm data-weather">
+          <strong id="temperature">
+            {Math.round(weatherData.temperature)}
+          </strong>
+          <span className="units">
+            <button className="links btn btn" id="celsius-link">
+              ºC
+            </button>
+            |
+            <button className="links btn btn" id="farenheit-link">
+              ºF
+            </button>
+          </span>
+          <div>
+            <ul>
+              <li>
+                <FontAwesomeIcon
+                  icon={faThermometerFull}
+                  className="icon-data"
+                />
+                {""}Feels like:{" "}
+                <span id="feels">{Math.round(weatherData.feelsLike)}</span>
+                ºC
+              </li>
+              <li>
+                <FontAwesomeIcon icon={faTint} className="icon-data" />
+                {""}Humidity: <span id="humidity">{weatherData.humidity}</span>%
+              </li>
+              <li>
+                <FontAwesomeIcon icon={faWind} className="icon-data" />
+                {""}Wind Speed:{" "}
+                <span id="windspeed">{Math.round(weatherData.windSpeed)}</span>{" "}
+                Km/H
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    const apiKey = "2945d86337190216b7c714cd617c298a";
+    let city = "Dublin";
+    let units = "&units=metric";
+    let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}${units}`;
+
+    axios.get(apiUrl).then(handleResponse);
+
+    return "Loading..";
+  }
 }
