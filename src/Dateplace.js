@@ -1,25 +1,45 @@
 import React from "react";
 
-import "./Dateplace.css";
+export default function ShowDate(props) {
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "November",
+    "December",
+  ];
+  let day = days(props.date.getDay());
+  let month = months(props.date.getMonth());
+  let hours = props.date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
 
-export default function ShowDate() {
-  let DateData = {
-    city: "Dublin",
-    date: "Sunday, 27 September",
-    hour: "14:30",
-  };
+  let minutes = props.date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
 
   return (
-    <div className="overview">
-      <h1 id="city">{DateData.city}</h1>
-      <ul className="dates-info">
-        <li>
-          <span id="date">{DateData.date}</span>
-        </li>
-        <li>
-          <span id="hour">{DateData.hour}</span>
-        </li>
-      </ul>
+    <div>
+      {day},{month}
+      <br />
+      {hours}:{minutes}
     </div>
   );
 }

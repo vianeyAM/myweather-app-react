@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+import ShowDate from "./Dateplace";
+
 import "./Weather.css";
 import * as Icons from "@intern0t/react-weather-icons";
 
@@ -17,6 +19,8 @@ export default function Weather() {
   function handleResponse(response) {
     setweatherData({
       ready: true,
+      city: response.data.name,
+      date: new Date(response.data.dt * 1000),
       temperature: response.data.main.temp,
       weatherType: response.data.weather[0].description,
       feelsLike: response.data.main.feels_like,
@@ -28,6 +32,11 @@ export default function Weather() {
   if (weatherData.ready) {
     return (
       <div className="row">
+        <div className="overview">
+          <h1 id="city">{weatherData.city}</h1>
+          <ShowDate date={weatherData.date} />
+        </div>
+
         <div className="col-sm img-weather">
           <Icons.Rain color="#D685B1" size={150} id="icon" />
           <h3>
@@ -75,9 +84,8 @@ export default function Weather() {
     );
   } else {
     const apiKey = "2945d86337190216b7c714cd617c298a";
-    let city = "Dublin";
     let units = "&units=metric";
-    let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}${units}`;
+    let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${weatherData.city}&appid=${apiKey}${units}`;
 
     axios.get(apiUrl).then(handleResponse);
 
