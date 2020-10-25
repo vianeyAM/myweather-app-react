@@ -31,53 +31,57 @@ export default function Weather() {
 
   if (weatherData.ready) {
     return (
-      <div className="row">
-        <div className="overview">
-          <h1 id="city">{weatherData.city}</h1>
-          <ShowDate date={weatherData.date} />
-        </div>
-
-        <div className="col-sm img-weather">
-          <Icons.Rain color="#D685B1" size={150} id="icon" />
-          <h3>
-            <span id="weatherType">{weatherData.weatherType}</span>
-          </h3>
-        </div>
-        <div class="col-sm data-weather">
-          <strong id="temperature">
-            {Math.round(weatherData.temperature)}
-          </strong>
-          <span className="units">
-            <button className="links btn btn" id="celsius-link">
-              ºC
-            </button>
-            |
-            <button className="links btn btn" id="farenheit-link">
-              ºF
-            </button>
-          </span>
-          <div>
-            <ul>
-              <li>
-                <FontAwesomeIcon
-                  icon={faThermometerFull}
-                  className="icon-data"
-                />
-                {""}Feels like:{" "}
-                <span id="feels">{Math.round(weatherData.feelsLike)}</span>
+      <div className="overwiew">
+        <h1 id="city">{weatherData.city}</h1>
+        <p>
+          <ShowDate />
+        </p>
+        <div className="row">
+          <div className="col-sm img-weather">
+            <Icons.Rain color="#D685B1" size={150} id="icon" />
+            <h3>
+              <span id="weatherType">{weatherData.weatherType}</span>
+            </h3>
+          </div>
+          <div class="col-sm data-weather">
+            <strong id="temperature">
+              {Math.round(weatherData.temperature)}
+            </strong>
+            <span className="units">
+              <button className="links btn btn" id="celsius-link">
                 ºC
-              </li>
-              <li>
-                <FontAwesomeIcon icon={faTint} className="icon-data" />
-                {""}Humidity: <span id="humidity">{weatherData.humidity}</span>%
-              </li>
-              <li>
-                <FontAwesomeIcon icon={faWind} className="icon-data" />
-                {""}Wind Speed:{" "}
-                <span id="windspeed">{Math.round(weatherData.windSpeed)}</span>{" "}
-                Km/H
-              </li>
-            </ul>
+              </button>
+              |
+              <button className="links btn btn" id="farenheit-link">
+                ºF
+              </button>
+            </span>
+            <div>
+              <ul>
+                <li>
+                  <FontAwesomeIcon
+                    icon={faThermometerFull}
+                    className="icon-data"
+                  />
+                  {""}Feels like:{" "}
+                  <span id="feels">{Math.round(weatherData.feelsLike)}</span>
+                  ºC
+                </li>
+                <li>
+                  <FontAwesomeIcon icon={faTint} className="icon-data" />
+                  {""}Humidity:{" "}
+                  <span id="humidity">{weatherData.humidity}</span>%
+                </li>
+                <li>
+                  <FontAwesomeIcon icon={faWind} className="icon-data" />
+                  {""}Wind Speed:{" "}
+                  <span id="windspeed">
+                    {Math.round(weatherData.windSpeed)}
+                  </span>{" "}
+                  Km/H
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

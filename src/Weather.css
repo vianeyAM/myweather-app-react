@@ -1,3 +1,18 @@
+h1 {
+  font-weight: 800;
+  display: block;
+  margin-bottom: 0;
+  font-size: 2rem;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
 h3 {
   font-weight: 800;
   margin-top: 25px;
@@ -64,4 +79,11 @@ button.links:hover {
   color: #ffffff;
   border-color: #543884;
   transition: ease-in-out 250ms;
+}
+
+.overview {
+  color: #a13670;
+  font-size: 1.5rem;
+  padding: 6% 10%;
+  line-height: 1.2;
 }
