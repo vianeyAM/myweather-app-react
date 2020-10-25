@@ -64,19 +64,17 @@ export default function Weather() {
                   <FontAwesomeIcon
                     icon={faThermometerFull}
                     className="icon-data"
-                  />
-                  {""}Feels like:{" "}
-                  <span id="feels">{Math.round(weatherData.feelsLike)}</span>
-                  ºC
+                  />{" "}
+                  Feels like:{" "}
+                  <span id="feels">{Math.round(weatherData.feelsLike)}</span> ºC
                 </li>
                 <li>
-                  <FontAwesomeIcon icon={faTint} className="icon-data" />
-                  {""}Humidity:{" "}
-                  <span id="humidity">{weatherData.humidity}</span>%
+                  <FontAwesomeIcon icon={faTint} className="icon-data" />{" "}
+                  Humidity: <span id="humidity">{weatherData.humidity}</span>%
                 </li>
                 <li>
-                  <FontAwesomeIcon icon={faWind} className="icon-data" />
-                  {""}Wind Speed:{" "}
+                  <FontAwesomeIcon icon={faWind} className="icon-data" /> Wind
+                  Speed:{" "}
                   <span id="windspeed">
                     {Math.round(weatherData.windSpeed)}
                   </span>{" "}
@@ -92,7 +90,7 @@ export default function Weather() {
     const apiKey = "2945d86337190216b7c714cd617c298a";
     let city = "Dublin";
     let units = "&units=metric";
-    let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}${units}`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}${units}`;
 
     axios.get(apiUrl).then(handleResponse);
 
