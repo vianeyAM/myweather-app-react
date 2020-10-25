@@ -19,23 +19,25 @@ export default function Weather() {
   function handleResponse(response) {
     setweatherData({
       ready: true,
-      city: response.data.name,
-      date: new Date(response.data.dt * 1000),
       temperature: response.data.main.temp,
       weatherType: response.data.weather[0].description,
       feelsLike: response.data.main.feels_like,
       humidity: response.data.main.humidity,
       windSpeed: response.data.wind.speed,
+      city: response.data.name,
+      date: new Date(response.data.dt * 1000),
     });
   }
 
   if (weatherData.ready) {
     return (
-      <div className="overwiew">
-        <h1 id="city">{weatherData.city}</h1>
-        <p>
-          <ShowDate />
-        </p>
+      <div className="Weather-main">
+        <div className="date-place">
+          <h1>{weatherData.city}</h1>
+          <p>
+            <ShowDate date={weatherData.date} />
+          </p>
+        </div>
         <div className="row">
           <div className="col-sm img-weather">
             <Icons.Rain color="#D685B1" size={150} id="icon" />
@@ -88,8 +90,9 @@ export default function Weather() {
     );
   } else {
     const apiKey = "2945d86337190216b7c714cd617c298a";
+    let city = "Dublin";
     let units = "&units=metric";
-    let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${weatherData.city}&appid=${apiKey}${units}`;
+    let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}${units}`;
 
     axios.get(apiUrl).then(handleResponse);
 
