@@ -87,3 +87,28 @@ button.links:hover {
   padding: 6% 10%;
   line-height: 1.2;
 }
+
+.btn {
+  font-weight: 700;
+  background-color: #9a77cf;
+  color: #ffffff;
+  border-color: #9a77cf;
+  margin-right: 5px;
+}
+
+.btn:hover {
+  background-color: #543884;
+  color: #ffffff;
+  border-color: #543884;
+  transition: ease-in-out 250ms;
+}
+
+.search {
+  display: block;
+  margin: 0 auto;
+  padding: 0 11%;
+}
+
+.icon-search {
+  margin: 3px;
+}
