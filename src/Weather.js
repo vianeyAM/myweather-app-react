@@ -1,17 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-import FormatDate from "./FormatDate";
-
+import WeatherInfo from "./WeatherInfo";
 import "./Weather.css";
-import * as Icons from "@intern0t/react-weather-icons";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faThermometerFull,
-  faTint,
-  faWind,
-} from "@fortawesome/free-solid-svg-icons";
 
 export default function Weather() {
   const [weatherData, setweatherData] = useState({ ready: false });
@@ -32,58 +23,7 @@ export default function Weather() {
   if (weatherData.ready) {
     return (
       <div className="Weather-main">
-        <div className="date-place">
-          <h1>{weatherData.city}</h1>
-          <p>
-            <FormatDate date={weatherData.date} />
-          </p>
-        </div>
-        <div className="row">
-          <div className="col-sm img-weather">
-            <Icons.Rain color="#D685B1" size={150} id="icon" />
-            <h3>
-              <span id="weatherType">{weatherData.weatherType}</span>
-            </h3>
-          </div>
-          <div class="col-sm data-weather">
-            <strong id="temperature">
-              {Math.round(weatherData.temperature)}
-            </strong>
-            <span className="units">
-              <button className="links btn btn" id="celsius-link">
-                ºC
-              </button>
-              |
-              <button className="links btn btn" id="farenheit-link">
-                ºF
-              </button>
-            </span>
-            <div>
-              <ul>
-                <li>
-                  <FontAwesomeIcon
-                    icon={faThermometerFull}
-                    className="icon-data"
-                  />{" "}
-                  Feels like:{" "}
-                  <span id="feels">{Math.round(weatherData.feelsLike)}</span> ºC
-                </li>
-                <li>
-                  <FontAwesomeIcon icon={faTint} className="icon-data" />{" "}
-                  Humidity: <span id="humidity">{weatherData.humidity}</span>%
-                </li>
-                <li>
-                  <FontAwesomeIcon icon={faWind} className="icon-data" /> Wind
-                  Speed:{" "}
-                  <span id="windspeed">
-                    {Math.round(weatherData.windSpeed)}
-                  </span>{" "}
-                  Km/H
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        <WeatherInfo data={weatherData} />
       </div>
     );
   } else {
