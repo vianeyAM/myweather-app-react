@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div className="weather-app">
-          <Weather defaultCity="Dublin" />
+          <Weather defaultCity="Ireland" />
           <Forecast />
         </div>
       </header>
