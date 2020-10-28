@@ -12,7 +12,6 @@ import {
 export default function Weather(props) {
   const [weatherData, setweatherData] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
-  const [country, setCountry] = useState(props.defaultCountry);
 
   function handleResponse(response) {
     setweatherData({
@@ -32,7 +31,7 @@ export default function Weather(props) {
   function search() {
     const apiKey = "2945d86337190216b7c714cd617c298a";
     let units = "&units=metric";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${apiKey}${units}`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}${units}`;
 
     axios.get(apiUrl).then(handleResponse);
   }
