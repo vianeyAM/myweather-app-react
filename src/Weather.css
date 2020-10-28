@@ -62,22 +62,14 @@ span.units {
   font-size: 5rem;
 }
 
-button.links {
-  background-color: #9a77cf;
-  color: #ffffff;
-  border-color: #9a77cf;
-  margin-right: 5px;
-  margin-left: 3px;
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-bottom: 1px;
-  padding-top: 1px;
+.links {
+  color: #9a77cf;
+  text-decoration: none;
 }
 
-button.links:hover {
-  background-color: #543884;
-  color: #ffffff;
-  border-color: #543884;
+.links:hover {
+  color: #543884;
+  text-decoration: none;
   transition: ease-in-out 250ms;
 }
 
