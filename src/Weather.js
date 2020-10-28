@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+import Forecast from "./Forecast";
+
 import WeatherInfo from "./WeatherInfo";
 import "./Weather.css";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faSearchLocation,
@@ -73,6 +76,7 @@ export default function Weather(props) {
           </form>
         </div>
         <WeatherInfo data={weatherData} />
+        <Forecast city={weatherData.city} />
       </div>
     );
   } else {

@@ -1,7 +1,8 @@
 import React from "react";
 
+import "./ForecastIcon.css";
 import "weather-icons/css/weather-icons.css";
-export default function WeatherIcon(props) {
+export default function ForecastIcon(props) {
   const codeMapping = {
     "01d": "wi-day-sunny",
     "01n": "wi-night-clear",
@@ -22,5 +23,7 @@ export default function WeatherIcon(props) {
     "50d": "wi-fog",
     "50n": "wi-fog",
   };
-  return <i className={`wi ${codeMapping[props.code]} display-1`} id="icon" />;
+  return (
+    <i className={`wi ${codeMapping[props.code]} forecast-icon`} id="icon" />
+  );
 }

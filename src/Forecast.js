@@ -1,61 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Forecast.css";
 
-import * as Icons from "@intern0t/react-weather-icons";
+import WeatherForecastPreview from "./WeatherForecastPreview";
+import axios from "axios";
 
-export default function Forecast() {
-  return (
-    <div className="row forecast" id="forecast">
-      <div class="col-sm box-day">
-        <strong>12:00</strong>
-        <div className="icon-forecast">
-          <Icons.Cloudy color="#FF8B33" size={50} />
-        </div>
-        <div>
-          <strong>12º</strong> | {""}
-          <span>20º</span>
-        </div>
+export default function Forecast(props) {
+  const [loaded, setLoaded] = useState(false);
+  const [forecast, setForecast] = useState(null);
+
+  function handleForecastResponse(response) {
+    setForecast(response.data);
+    setLoaded(true);
+  }
+
+  if (loaded && props.city === forecast.city.name) {
+    return (
+      <div className="row forecast">
+        <WeatherForecastPreview data={forecast.list[0]} />
+        <WeatherForecastPreview data={forecast.list[1]} />
+        <WeatherForecastPreview data={forecast.list[2]} />
+        <WeatherForecastPreview data={forecast.list[3]} />
+        <WeatherForecastPreview data={forecast.list[4]} />
       </div>
-      <div class="col-sm box-day">
-        <strong>15:00</strong>
-        <div className="icon-forecast">
-          <Icons.DayRainMix color="#FF8B33" size={50} />
-        </div>
-        <div>
-          <strong>12º</strong> | {""}
-          <span>20º</span>
-        </div>
-      </div>
-      <div class="col-sm box-day">
-        <strong>18:00</strong>
-        <div className="icon-forecast">
-          <Icons.DayRain color="#FF8B33" size={50} />
-        </div>
-        <div>
-          <strong>12º</strong> | {""}
-          <span>20º</span>
-        </div>
-      </div>
-      <div class="col-sm box-day">
-        <strong>21:00</strong>
-        <div className="icon-forecast">
-          <Icons.Cloudy color="#FF8B33" size={50} />
-        </div>
-        <div>
-          <strong>12º</strong> | {""}
-          <span>20º</span>
-        </div>
-      </div>
-      <div class="col-sm box-day">
-        <strong>00:00</strong>
-        <div className="icon-forecast">
-          <Icons.DayRainMix color="#FF8B33" size={50} />
-        </div>
-        <div>
-          <strong>12º</strong> | {""}
-          <span>20º</span>
-        </div>
-      </div>
-    </div>
-  );
+    );
+  } else {
+    let apiKey = `2945d86337190216b7c714cd617c298a`;
+    let url = `http://api.openweathermap.org/data/2.5/forecast?q=${props.city}&appid=${apiKey}&units=metric`;
+    axios.get(url).then(handleForecastResponse);
+
+    return null;
+  }
 }

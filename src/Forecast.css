@@ -11,3 +11,16 @@
   padding-top: 15px;
   padding-bottom: 15px;
 }
+
+.temp-minmax {
+  display: block;
+  text-align: center;
+}
+
+span.temp-min {
+  display: block;
+}
+
+span.temp-max {
+  display: block;
+}
