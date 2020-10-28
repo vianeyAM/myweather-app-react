@@ -88,13 +88,14 @@ a.links.btn {
   text-decoration: none;
 }
 a.links.btn.active {
+  font-weight: 300;
   background-color: #543884;
   color: #9a77cf;
   text-decoration: none;
 }
 
 a.links.btn.disable {
-  font-weight: 700;
+  font-weight: bolder;
   background-color: #9a77cf;
   color: #ffffff;
   text-decoration: none;
