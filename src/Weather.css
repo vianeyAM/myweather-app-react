@@ -28,8 +28,27 @@ li {
   list-style: none;
 }
 
+a {
+  text-decoration: none;
+}
+
 span.units {
   color: #543884;
+}
+
+button.btn {
+  font-weight: 700;
+  background-color: #9a77cf;
+  color: #ffffff;
+  border-color: #9a77cf;
+  margin-right: 5px;
+}
+
+button.btn:hover {
+  background-color: #543884;
+  color: #ffffff;
+  border-color: #543884;
+  transition: ease-in-out 250ms;
 }
 
 .img-weather {
@@ -62,15 +81,24 @@ span.units {
   font-size: 5rem;
 }
 
-.links {
+a.links.btn {
+  margin: 6px 3px;
+  padding: 3px 7px;
+  text-align: center;
+  text-decoration: none;
+}
+a.links.btn.active {
+  background-color: #543884;
   color: #9a77cf;
   text-decoration: none;
 }
 
-.links:hover {
-  color: #543884;
+a.links.btn.disable {
+  font-weight: 700;
+  background-color: #9a77cf;
+  color: #ffffff;
   text-decoration: none;
-  transition: ease-in-out 250ms;
+  pointer-events: none;
 }
 
 .date-place {
@@ -78,21 +106,6 @@ span.units {
   font-size: 1.5rem;
   padding: 6% 10%;
   line-height: 1.2;
-}
-
-.btn {
-  font-weight: 700;
-  background-color: #9a77cf;
-  color: #ffffff;
-  border-color: #9a77cf;
-  margin-right: 5px;
-}
-
-.btn:hover {
-  background-color: #543884;
-  color: #ffffff;
-  border-color: #543884;
-  transition: ease-in-out 250ms;
 }
 
 .search {
