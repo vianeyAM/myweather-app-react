@@ -51,12 +51,9 @@ export default function Weather(props) {
 
   //Current location
   function searchCurrentLocation(position) {
-    let apiKey = `2945d86337190216b7c714cd617c29`;
+    let apiKey = `2945d86337190216b7c714cd617c298a`;
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
-
-    apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(<Forecast />);
   }
 
   function getCurrentLocation(event) {
